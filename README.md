@@ -50,7 +50,7 @@ After that, install the dependencies using the command<br> <code>pip3 install -r
 After that, <a href = "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html"> create an IAM user </a> as it is always advisable to experiment using IAM account rather than Root Account.
 Now as a root user, <a href = "https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html"> create a bucket </a> for storing up your files and 
 provide <a href = "https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example1.html"> permissions to IAM users</a>. 
-Now, <a href = "https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html"> install AWS CLI </a> and configure it using <code>aws configure</code> command in CMD. It will ask for Access and Security Keys; those can be created from <a href = "https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html"> here</a>.
+Now, <a href = "https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html"> install AWS CLI </a> and configure it using <code>aws configure</code> command in CMD. It will ask for Access and Security Keys; those can be created from <a href = "https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html"> here</a>.</p>
 ![image](https://user-images.githubusercontent.com/73545828/231987967-cfed5e95-0e45-4cef-a920-359e45160a14.png)
 
 <p align = "Justify">
