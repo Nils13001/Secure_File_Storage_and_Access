@@ -19,10 +19,15 @@ Thanks to cloud technology, we got services like Google Cloud and One-drive to s
 <li>Steganography for Hiding Keys in Image and Sending Them Over Mail
 </ul>
 
+<h3>Future-Enhancements</h3>
+<ul type="square">
+<li>GUI interface
+<li>Website creation and hosting with Login Functionality
+
 
 <h3>Modules Description</h3>
 <ul type="square">
-<li><b>driver.py:</b> Driver program for our project
+<li><b>driver.py:</b> Driver program for our project.
 <li><b>file_encrypt.py:</b> For encryption of our file content
 <li><b>img_stego.py:</b> For image steganography
 <li><b>send_mail.py:</b> For mail drafting and sending
@@ -42,17 +47,48 @@ Thanks to cloud technology, we got services like Google Cloud and One-drive to s
 </ul>
 
 
-<h3> Implementation </h3>
+<h3> Pre-requisites </h3>
 <p align="justify"> <b> 1. Environment and Repo Setup: </b> It is advisable to first create a virtual environment in a location of your choice using <br><code>virtualenv &lt;environment-name&gt;</code>.<br>It will create a folder with same name. Then, activate it using <br><code>&lt;environment-name&gt;\Scripts\activate</code>.<br>Inside it, clone the repo using<br><code>git clone https://github.com/Nils13001/Secure_File_Storage_and_Access.git</code>.<br>
-After that, install the dependencies using the command<br> <code>pip3 install -r requirement.txt</code>
+After that, install the dependencies using the command<br> <code>pip3 install -r requirement.txt</code></p>
 
 <p align="justify"> <b> 2. Setting-up AWS Account: </b> First of all, <a href= "https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html"> create an account </a> in AWS as root user.
 After that, <a href = "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html"> create an IAM user </a> as it is always advisable to experiment using IAM account rather than Root Account.
 Now as a root user, <a href = "https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html"> create a bucket </a> for storing up your files and 
 provide <a href = "https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example1.html"> permissions to IAM users</a>. 
-Now, <a href = "https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html"> install AWS CLI </a> and configure it using <code>aws configure</code> command in CMD. It will ask for Access and Security Keys; those can be created from <a href = "https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html"> here</a>.</p>
-![image](https://user-images.githubusercontent.com/73545828/231987967-cfed5e95-0e45-4cef-a920-359e45160a14.png)
+Now, <a href = "https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html"> install AWS CLI </a> and configure it using <code>aws configure</code> command in CMD. It will ask for Access and Security Keys; those can be created from <a href = "https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html"> here</a>.<br>
+<img src="https://user-images.githubusercontent.com/73545828/231987967-cfed5e95-0e45-4cef-a920-359e45160a14.png">
 
-<p align = "Justify">
+<p align = "Justify"> <b> 2. Setting-up Mailtrap Account: </b> To use mailtrap, first create your <a href = "https://mailtrap.io/register/signup?ref=header"> Mailtrap Account</a>. After that, click on Email-testing, and you can find your credentials under SMTP settings.<br>
+<img src = "https://user-images.githubusercontent.com/73545828/231992375-acb7a994-a0d0-4681-8263-ef744eb3e933.png"> <br>
+Using them, edit <b>generate_mail_config.py</b> file to add the necessary parameters. After that issue the following command.<br>
+<code> python generate_mail_config.py </code>.<br> It will create a configuration file, which will be used to send mails.
 
-<p align="
+
+<h3> Flow-Chart of Project </h3>
+<img src = "https://user-images.githubusercontent.com/73545828/231994778-5367a91e-4269-4cd8-864b-e733a2006f8b.png">
+
+<h3> Output Screenshots </h3>
+
+<h4> Driver Code<br><br>
+<img src="https://user-images.githubusercontent.com/73545828/232002352-461a7163-73ea-4b35-ac5f-a8bf42ed34aa.png">
+</h4>
+
+<h4> Encryption and Uploading of File<br><br>
+<img src="https://user-images.githubusercontent.com/73545828/232004917-d76f1f4b-c885-45b0-aa2f-6634cfca595d.png">
+</h4>
+
+<h4> File on Cloud<br><br>
+<img src="https://user-images.githubusercontent.com/73545828/232005654-8e45b544-34d8-4594-9321-81ec8bfd1357.png">
+</h4>
+
+<h4> Mailtrap Inbox<br><br>
+<img src="https://user-images.githubusercontent.com/73545828/232006739-1c485413-d7ec-4528-bcf0-4ac0663a4edd.png">
+</h4>
+
+<h4> Downloading File<br><br>
+<img src="https://user-images.githubusercontent.com/73545828/232007525-129d72dd-46bd-4235-a347-f65b3cfebc22.png">
+</h4>
+
+<h4> Decryption of File<br><br>
+<img src="https://user-images.githubusercontent.com/73545828/232008415-be445cc3-cd04-4365-b857-46a6e5e1fb1b.png">
+</h4>
