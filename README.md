@@ -23,6 +23,7 @@ Thanks to cloud technology, we got services like Google Cloud and One-drive to s
 <ul type="square">
 <li>GUI interface
 <li>Website creation and hosting with Login Functionality
+</ul>
 
 
 <h3>Modules Description</h3>
