@@ -1,6 +1,6 @@
 
-from mail import mail
-from stego import encode
+from send_mail import mail
+from img_stego import encode
 import rsa
 from cryptography.fernet import Fernet
 from base64 import b64encode

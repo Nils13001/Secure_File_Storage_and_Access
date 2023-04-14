@@ -1,9 +1,9 @@
 import getopt, sys
-import hybrid
-import uploadS3
+import file_encrypt
+import cloud_upload
 import os
 import boto3
-import decrypt
+import full_decrypt
 
 def main():
     bucket = None
@@ -39,8 +39,8 @@ def main():
             elif opt in ['-f']:
                 src = arg
         if (type == "upload"):
-            file_name = hybrid.Encoding()
-            uploadS3.upload_file(file_name, bucket, object)
+            file_name = file_encrypt.Encoding()
+            cloud_upload.upload_file(file_name, bucket, object)
             print("Uploaded Successfully!!!")
 
         elif (type == "download"):
@@ -49,7 +49,7 @@ def main():
             print("File Downloaded!!!")
 
         elif (type == "decrypt"):
-            decrypt.dec_main()
+            full_decrypt.dec_main()
 
 if __name__ == '__main__':
     main()
