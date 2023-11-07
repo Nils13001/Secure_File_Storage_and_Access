@@ -30,7 +30,7 @@ Thanks to cloud technology, we got services like Google Cloud and One-drive to s
 <ul type="square">
 <li><b>driver.py:</b> Driver program for our project.
 <li><b>file_encrypt.py:</b> For encryption of our file content
-<li><b>img_stego.py:</b> For image steganography
+<li><b>img_stego.py:</b> For image steganography (Avoid JPEG/JPG image due to lossy compression)
 <li><b>send_mail.py:</b> For mail drafting and sending
 <li><b>cloud_upload.py:</b> For uploading encrypted file over AWS.
 <li><b>generate_mail_config.py:</b> For generating configuration file for Mailtrap; <b>first file to be executed</b>.
