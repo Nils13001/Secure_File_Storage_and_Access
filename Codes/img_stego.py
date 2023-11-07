@@ -1,6 +1,6 @@
 from PIL import Image
 
-#Converting data(key) to bytes
+# Function for converting data/keys to bytes
 def genData(data):
     # list of binary codes of given data
     newd = []
@@ -9,7 +9,8 @@ def genData(data):
         newd.append(format(ord(i), '08b'))
     return newd
 
-# Pixels are modified according to the 8-bit binary data and finally returned
+# Function for modifying pixels according to the 8-bit binary data
+# and return them
 def modPix(pix, data):
     
     datalist = genData(data)
@@ -22,6 +23,7 @@ def modPix(pix, data):
         pix = [value for value in imdata.__next__()[:3] +
 								imdata.__next__()[:3] +
 								imdata.__next__()[:3]]
+        
         # Pixel value should be made odd for 1 and even for 0
         for j in range(0, 8):
             if (datalist[i][j] == '0' and pix[j]% 2 != 0):
@@ -46,13 +48,16 @@ def modPix(pix, data):
         yield pix[3:6]
         yield pix[6:9]
 
-#Encoding modified pixel in new image opy
+# Function for encoding modified pixels in new image copy
 def encode_enc(newimg, data, private):
     
     w = newimg.size[0]
     (x, y) = (0, 0)
     d = newimg.getdata()
+
     ct = 1
+
+    # For symmetric key
     for pixel in modPix(d, data):
         # Putting modified pixels in the new image
         ct+=1
@@ -63,6 +68,7 @@ def encode_enc(newimg, data, private):
         else:
             x += 1
 
+    # For private key
     for pixel in modPix(d, private):
         # Putting modified pixels in the new image
         ct+=1
@@ -76,8 +82,12 @@ def encode_enc(newimg, data, private):
 # Main encode program
 def encode(key, priv):
     
-    img = input("Enter image name(with extension) : ")
+    # Take input of Image name from user
+    # Remember, JPEG/JPG image due to their lossy compression
+    img = input("Enter image name (Except JPEG/JPG extension): ")
     image = Image.open(img, 'r')
+
+    # Taking and stroing lengths of both keys
     data = key
     privat = priv
     len_key = len(data)
@@ -86,9 +96,12 @@ def encode(key, priv):
     if (len(data) == 0):
         raise ValueError('Data is empty')
     
+    # Create a new copy of image and perform steganography on it
     newimg = image.copy()
     encode_enc(newimg, data, privat)
     
-    new_img_name = input("Enter the name of new image(with extension) : ")
+    # Provide new name for this stegged image, save it and
+    # return the lengths and image name for mailing
+    new_img_name = input("Provide name for new image (Except JPEG/JPG extension): ")
     newimg.save(new_img_name, str(new_img_name.split(".")[1].upper()))
     return len_key, new_img_name, len_priv
