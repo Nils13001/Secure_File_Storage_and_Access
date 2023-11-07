@@ -15,19 +15,21 @@ def main():
 
     try:
         opts, args = getopt.getopt(argv, "b:o:f:t:h:")
+        if len(opts)<1:
+            print ("Usage: python3 driver.py -h")
 
     except:
-        print ("usage: python3 main.py -t upload -b <bucket-name> -o <object>")
-        print ("usage: python3 main.py -t download -b <bucket-name> -o <object> -f <file-name>")
-        print ("usage: python3 main.py -t decrypt")
+        print ("Usage: python3 driver.py -t upload -b <bucket-name> [-o <object-name on cloud>]")
+        print ("Usage: python3 driver.py -t download -b <bucket-name> -o <object-name on cloud> -f <file-name for host>")
+        print ("Usage: python3 driver.py -t decrypt")
         sys.exit(2)
 
     else:
         for opt, arg in opts:
             if opt in ['-h']:
-                print ("usage: python3 main.py -t upload -b <bucket-name> -o <object>")
-                print ("usage: python3 main.py -t download -b <bucket-name> -o <object> -f <file-name>")
-                print ("usage: python3 main.py -t decrypt")
+                print ("Usage: python3 driver.py -t upload -b <bucket-name> [-o <object-name on cloud>]")
+                print ("Usage: python3 driver.py -t download -b <bucket-name> -o <object-name on cloud> -f <file-name for host>")
+                print ("Usage: python3 driver.py -t decrypt")
                 os._exit(0)
 
             elif opt in ['-t']:
@@ -38,6 +40,7 @@ def main():
                 object = arg
             elif opt in ['-f']:
                 src = arg
+        
         if (type == "upload"):
             file_name = file_encrypt.Encoding()
             cloud_upload.upload_file(file_name, bucket, object)
@@ -50,6 +53,7 @@ def main():
 
         elif (type == "decrypt"):
             full_decrypt.dec_main()
+            print("Decryption Successful!!!")
 
 if __name__ == '__main__':
     main()
